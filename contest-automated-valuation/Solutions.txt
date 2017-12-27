@@ -1,0 +1,86 @@
+Solution 1
+num1,num2=map(int,raw_input().split())
+fact1=fact2=1
+i=1
+while i<=num1:
+	fact1*=i
+	i+=1
+i=1
+while i<=num2:
+	fact2*=i
+	i+=1
+print fact1,fact2
+
+Solution 2
+import re
+value = []
+items=[x for x in raw_input().split(',')]
+for p in items:
+    if len(p)<6 or len(p)>12:
+        continue
+    else:
+        pass
+    if not re.search("[a-z]",p):
+        continue
+    elif not re.search("[0-9]",p):
+        continue
+    elif not re.search("[A-Z]",p):
+        continue
+    elif not re.search("[$#@]",p):
+        continue
+    elif re.search("\s",p):
+        continue
+    else:
+        pass
+    value.append(p)
+print ",".join(value)
+
+Solution 3
+from operator import itemgetter
+l = []
+f=open('in.pgm3.txt','r')
+while True:
+    s = f.readline()
+    if not s:
+        break
+    l.append(tuple(s.split(",")))
+
+print sorted(l, key=itemgetter(0,1,2))
+f.close()
+
+Solution 4
+import match
+s = raw_input()
+pos = [0,0]
+s=s.split(',')
+i=0
+while(i<len(s)):
+    movement = s[i].split(" ")
+    direction = movement[0]
+    steps = int(movement[1])
+    if direction=="UP":
+        pos[0]+=steps
+    elif direction=="DOWN":
+        pos[0]-=steps
+    elif direction=="LEFT":
+        pos[1]-=steps
+    elif direction=="RIGHT":
+        pos[1]+=steps
+    else:
+        pass
+    i+=1
+
+print int(round(math.sqrt(pos[1]**2+pos[0]**2)))
+
+
+Solution 5
+freq = {}
+line = raw_input()
+for word in line.split():
+    freq[word] = freq.get(word,0)+1
+
+words = freq.keys()
+words.sort()
+
+for w in words:
+	print "%s:%d" % (w,freq[w])
