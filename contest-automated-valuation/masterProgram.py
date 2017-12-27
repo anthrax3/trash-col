@@ -94,6 +94,7 @@ for i in range(1,3):
     successList.write("Participant"+str(i)+"\tCorrect : "+str(totalCorr)+"\n")
 successList.close()
 os.system("cat successList.txt")
+os.system("rm -f in.pgm3.txt")
 
 '''
 different test samples can be used or multiple tests can be made by multiple use of the statements and corrsponding validations..
