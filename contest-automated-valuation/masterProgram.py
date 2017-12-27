@@ -1,6 +1,7 @@
 #masterProgram.py
 '''
-1. For program 3(a program which works using a file, the file location should be in the location where the masterProgram.py lies). So, the input test value should be placed where masterProgram.py is located
+1. For program 3(a program which works using a file, the file location should be in the location where the masterProgram.py lies). So, the input test value should be placed where masterProgram.py is located.
+2. So, as the first step, the test sample for this program is to be made available at ..
 '''
 '''
 variables
@@ -11,8 +12,9 @@ variables
     oppp -- holds return values(outputs)
 '''
 from subprocess import Popen, PIPE, STDOUT
-from os import system
+import os
 #store the success list to a file named successList.txt
+os.system("cp -f in/in.pgm3.txt .")
 successList=open('successList.txt','w')
 for i in range(1,3):
     totalCorr=0
@@ -91,4 +93,10 @@ for i in range(1,3):
 
     successList.write("Participant"+str(i)+"\tCorrect : "+str(totalCorr)+"\n")
 successList.close()
-system("cat successList.txt")
+os.system("cat successList.txt")
+
+'''
+different test samples can be used or multiple tests can be made by multiple use of the statements and corrsponding validations..
+p = Popen(["python",programURL], stdin=PIPE, stdout=PIPE)
+out = p.communicate(f.read())[0]
+'''
